@@ -1,0 +1,19 @@
+diff --git a/node_modules/supersimpledev/chatbot.js b/node_modules/supersimpledev/chatbot.js
+index 9e8deea..422487b 100644
+--- a/node_modules/supersimpledev/chatbot.js
++++ b/node_modules/supersimpledev/chatbot.js
+@@ -28,12 +28,12 @@ const Chatbot = {
+ 
+       return `Today is ${month} ${day}`;
+     },
+-    'thank': 'No problem! Let me know if you need help with anything else!',
++    
+   },
+ 
+   additionalResponses: {},
+ 
+-  unsuccessfulResponse: `Sorry, I didn't quite understand that. Currently, I only know how to flip a coin, roll a dice, or get today's date. Let me know how I can help!`,
++  unsuccessfulResponse: `Sorry, I don't know right now , but I'll learn it in the future! I've marked your question for later. Anything else you'd like to ask?.`,
+ 
+   emptyMessageResponse: `Sorry, it looks like your message is empty. Please make sure you send a message and I will give you a response.`,
+ 

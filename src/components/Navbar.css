@@ -1,0 +1,48 @@
+.navbar {
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+
+  border-bottom: 1px solid #2d2d2d;
+
+  background: #212121;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.theme-toggle {
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #2f2f2f;
+  color: white;
+
+  cursor: pointer;
+  font-size: 18px;
+}
+.menu-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.light-theme .navbar {
+  background: white;
+  color: black;
+}
+
+.light-theme .menu-btn {
+  color: black;
+}
