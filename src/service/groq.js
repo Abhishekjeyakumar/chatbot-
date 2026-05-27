@@ -1,8 +1,5 @@
 import axios from "axios";
 
-const GROQ_API_KEY =
-  import.meta.env.VITE_GROQ_API_KEY;
-
 export async function getGroqResponse(
   userMessage,
   chatMessages = []
@@ -33,15 +30,13 @@ export async function getGroqResponse(
       content: userMessage,
     });
 
+    // SEND TO BACKEND
     const response =
       await axios.post(
 
-        "https://api.groq.com/openai/v1/chat/completions",
+        "http://localhost:5000/api/chat",
 
         {
-          model:
-            "llama-3.3-70b-versatile",
-
           messages: [
 
             {
@@ -53,54 +48,27 @@ You are AskMe AI.
 Rules:
 - Behave like ChatGPT.
 - Maintain conversation memory.
-- Answer naturally and intelligently.
-- Be concise for simple chats.
-- Be detailed for technical questions.
-- Support coding, debugging, AI, math, writing, reasoning.
-- Format markdown cleanly.
-- Use bullet points when useful.
-- Never repeat unnecessarily.
-- Be friendly and modern.
-- If image not available say politely.
+- Answer naturally.
+- Be smart and modern.
+- Support coding and AI questions.
+- Use markdown when needed.
 `,
             },
 
             ...formattedMessages,
           ],
-
-          temperature: 0.7,
-
-          max_tokens: 2048,
-
-          top_p: 1,
-
-          stream: false,
-        },
-
-        {
-          headers: {
-
-            Authorization:
-              `Bearer ${GROQ_API_KEY}`,
-
-            "Content-Type":
-              "application/json",
-          },
         }
       );
 
-    return response.data
-      .choices[0]
-      .message.content;
+    return response.data.response;
 
   } catch (error) {
 
     console.error(
-      "Groq API Error:",
-      error
+      "Frontend API Error:",
+      error.response?.data || error.message
     );
 
-    return
-      "Something went wrong.";
+    return "Something went wrong.";
   }
 }
