@@ -34,7 +34,7 @@ export async function getGroqResponse(
     const response =
       await axios.post(
 
-        "http://localhost:5000/api/chat",
+        "https://askme-backend-zv6o.onrender.com/api/chat",
 
         {
           messages: [
